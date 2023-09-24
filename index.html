@@ -6,7 +6,7 @@
     <title>第一名的網站</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* 添加額外的CSS樣式以調整數值顯示 */
+        /* 添加额外的CSS样式以调整数值显示 */
         #data-table {
             margin: 0 auto;
         }
@@ -20,7 +20,7 @@
             justify-content: space-between;
         }
         .data-row th, .data-row td {
-            width: 48%; /* 將溫度和濕度分開，各佔48%的寬度 */
+            width: 48%; /* 将温度和湿度分开，各占48%的宽度 */
         }
     </style>
 </head>
@@ -34,6 +34,10 @@
             <div id="thingspeak-data">
                 <!-- ThingSpeak data will be displayed here -->
             </div>
+        </section>
+        <section id="time-section">
+            <h2>Current Time</h2>
+            <p>当前时间：<span id="current-time"></span></p>
         </section>
     </main>
     <footer>
@@ -57,23 +61,15 @@
                     const feed = data.feeds[0];
                     if (feed) {
                         const table = document.createElement('table');
-                        table.id = 'data-table'; // 添加表格的ID以應用CSS樣式
+                        table.id = 'data-table'; // 添加表格的ID以应用CSS样式
                         table.innerHTML = `
-                            <tr>
-                                <th>Time</th>
-                                <th></th> <!-- 空白列 -->
-                                <th></th> <!-- 空白列 -->
-                            </tr>
-                            <tr>
-                                <td colspan="2">${feed.created_at}</td>
+                            <tr class="data-row">
+                                <th>溫度</th>
+                                <th>濕度</th>
                             </tr>
                             <tr class="data-row">
-                                <th>溫度 (°C)</th>
-                                <th>濕度 (%)</th>
-                            </tr>
-                            <tr class="data-row">
-                                <td>${feed.field1}</td>
-                                <td>${feed.field2}</td>
+                                <td>${feed.field1}(°C)</td>
+                                <td>${feed.field2}(%)</td>
                             </tr>
                         `;
                         thingspeakData.innerHTML = '';
@@ -85,11 +81,22 @@
                 });
         }
 
+        // Function to update current time
+        function updateCurrentTime() {
+            const currentTimeElement = document.getElementById('current-time');
+            const now = new Date();
+            const formattedTime = now.toLocaleString(); // Get current time as a string
+            currentTimeElement.textContent = formattedTime; // Update the content of the <span> element
+        }
+
         // Fetch data initially
         fetchData();
 
         // Set up an interval to fetch data every 5 seconds
-        setInterval(fetchData, 500);
+        setInterval(fetchData, 5000);
+
+        // Set up an interval to update current time every second
+        setInterval(updateCurrentTime, 1000);
     </script>
 </body>
 </html>
