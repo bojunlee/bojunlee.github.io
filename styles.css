@@ -1,47 +1,57 @@
-/* 重置一些默認樣式 */
-body, h1, h2, h3, ul, li, p {
-    margin: 0;
-    padding: 0;
+/* 添加额外的CSS样式以调整数值显示 */
+#data-table {
+    margin: 0 auto;
+    background-color: #ffffff; /* 表格背景色 */
+    border-radius: 8px; /* 圓角 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+}
+
+#data-table th, #data-table td {
+    font-size: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ccc; /* 表格分隔線 */
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0; /* 奇數行背景色 */
+}
+
+.data-row:nth-child(even) {
+    background-color: #e0e0e0; /* 偶數行背景色 */
+}
+
+#thingspeak-section {
+    background-color: #f0f0f0; /* 區域背景色 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#time-section {
+    background-color: #f0f0f0; /* 區域背景色 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 body {
+    background-color: #dcdcdc; /* 整體背景色 */
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
 }
 
-/* 頁首樣式 */
 header {
-    background-color: #000;
+    background-color: #3f51b5; /* 頁首背景色 - 藍色 */
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    border-bottom: 3px solid #303f9f; /* 頁首底線 */
 }
 
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* 主要內容樣式 */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* 頁腳樣式 */
 footer {
-    background-color: #000;
+    background-color: #3f51b5; /* 頁腳背景色 - 藍色 */
     color: #fff;
     text-align: center;
     padding: 10px 0;
