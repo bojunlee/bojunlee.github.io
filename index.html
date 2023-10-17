@@ -64,20 +64,18 @@
         <section id="thingspeak-section">
             <h2>ThingSpeak Data</h2>
             <div id="thingspeak-data">
+               
+
                 <table id="data-table">
                     <tr class="data-row">
                         <th>溫度</th>
                         <th>濕度</th>
-                        <th>激光狀態</th>
                     </tr>
                     <tr class="data-row" id="data-row-values">
                         <td id="temperature">(溫度數值)</td>
                         <td id="humidity">(濕度數值)</td>
-                        <td id="laserStatus">(激光狀態)</td>
                     </tr>
                 </table>
-                <button id="laserOnButton">Turn On Laser</button>
-                <button id="laserOffButton">Turn Off Laser</button>
             </div>
         </section>
         <section id="time-section">
@@ -104,12 +102,10 @@
                     // Parse JSON data and display it on the web page
                     const temperatureElement = document.getElementById('temperature');
                     const humidityElement = document.getElementById('humidity');
-                    const laserStatusElement = document.getElementById('laserStatus');
                     const feed = data.feeds[0];
                     if (feed) {
                         temperatureElement.textContent = `${feed.field1}(°C)`;
                         humidityElement.textContent = `${feed.field2}(%)`;
-                        laserStatusElement.textContent = feed.field3 === '1' ? 'On' : 'Off';
                     }
                 })
                 .catch(error => {
