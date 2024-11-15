@@ -45,8 +45,8 @@
   
   <script setup>
   import { ref, computed } from 'vue'
-  import { products } from '../components/Products/products'
-  import ProductGrid from '../components/Products/ProductGrid.vue'
+  import { products } from '../components/products/products'
+  import ProductGrid from '../components/products/ProductGrid.vue'
   
   const categories = [
     { label: '上衣', value: '上衣', icon: 'fas fa-tshirt' },
