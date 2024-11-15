@@ -76,8 +76,8 @@
   <script setup>
   import { ref, computed, onMounted } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
-  import { products } from '../components/Products/products'
-  import ProductCard from '../components/Products/ProductCard.vue' // 引入商品卡片組件
+  import { products } from '../components/products/products'
+  import ProductCard from '../components/products/ProductCard.vue' // 引入商品卡片組件
   
   const route = useRoute()
   const router = useRouter()
